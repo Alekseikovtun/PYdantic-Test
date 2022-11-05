@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 from enum import Enum
 from typing import Tuple
 
@@ -21,8 +21,7 @@ class Topping(str, Enum):
     strawberries = 'strawberries'
 
 
-@dataclass
-class IceCreamMix:
+class IceCreamMix(BaseModel):
     name: str
     flavor: Flavor
     toopings: Tuple[Topping, ...]
