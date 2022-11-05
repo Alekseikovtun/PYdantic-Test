@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from enum import Enum
 from typing import Tuple
 
@@ -25,4 +25,4 @@ class IceCreamMix(BaseModel):
     name: str
     flavor: Flavor
     toopings: Tuple[Topping, ...]
-    scoops: int
+    scoops: int = Field(..., gt=0, lt=5)
