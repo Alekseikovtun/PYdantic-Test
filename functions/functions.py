@@ -9,7 +9,7 @@ def main():
         ice_cream_mix = IceCreamMix(
             name='idk',
             flavor=Flavor.chocolate,
-            toopings=(Topping.brownie, Topping.cookies),
+            toppings=(Topping.brownie, Topping.cookies),
             scoops=2
         )
         return ice_cream_mix

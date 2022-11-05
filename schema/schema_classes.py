@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 from enum import Enum
 from typing import Tuple
 
@@ -24,5 +24,11 @@ class Topping(str, Enum):
 class IceCreamMix(BaseModel):
     name: str
     flavor: Flavor
-    toopings: Tuple[Topping, ...]
+    toppings: Tuple[Topping, ...]
     scoops: int = Field(..., gt=0, lt=5)
+
+    @validator('toppings')
+    def check_toppings(cls, toppings):
+        if len(toppings) > 4:
+            raise ValueError('Too many toppings')
+        return toppings
