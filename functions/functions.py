@@ -8,6 +8,7 @@ def main():
     try:
         ice_cream_mix = IceCreamMix(
             name='idk',
+            container='cone',
             flavor=Flavor.chocolate,
             toppings=(Topping.brownie, Topping.cookies),
             scoops=2
